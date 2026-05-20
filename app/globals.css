@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-luxuryBg: #070707;
+  --color-luxurySurface: #111111;
+  --color-luxuryGold: #C8A96B;
+  --color-luxuryText: #F5F1E8;
+  --color-luxuryMuted: #A9A39A;
+
+  --font-serif: var(--font-serif), serif;
+  --font-sans: var(--font-sans), sans-serif;
+}
+
+/* Custom scrollbar utility to keep things premium and clean */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
