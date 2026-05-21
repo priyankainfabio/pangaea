@@ -15,11 +15,55 @@ interface MarketIntelligence {
 }
 
 const intelligenceData: MarketIntelligence[] = [
-  { country: "Dubai", roi: "11.2%", yield: "8.4%", residency: "Golden Visa (2-10 Yrs)", appreciation: "+14.2% YoY", x: "65%", y: "48%" },
-  { country: "Portugal", roi: "8.9%", yield: "5.2%", residency: "D7 / Golden Route", appreciation: "+17.1% YoY", x: "42%", y: "38%" },
-  { country: "Greece", roi: "9.4%", yield: "6.1%", residency: "PR via €250k-800k", appreciation: "+12.8% YoY", x: "48%", y: "40%" },
-  { country: "United Kingdom", roi: "7.6%", yield: "4.8%", residency: "Tier 1 / High Net Worth", appreciation: "+6.5% YoY", x: "40%", y: "28%" },
-  { country: "Cyprus", roi: "10.1%", yield: "7.0%", residency: "Permanent Residency", appreciation: "+9.2% YoY", x: "51%", y: "42%" }
+  {
+    country: "Dubai",
+    roi: "11.2%",
+    yield: "8.4%",
+    residency: "Golden Visa (2-10 Yrs)",
+    appreciation: "+14.2% YoY",
+    x: "63%",
+    y: "52%"
+  },
+
+  {
+    country: "Portugal",
+    roi: "8.9%",
+    yield: "5.2%",
+    residency: "D7 / Golden Route",
+    appreciation: "+17.1% YoY",
+    x: "46%",
+    y: "41%"
+  },
+
+  {
+    country: "Greece",
+    roi: "9.4%",
+    yield: "6.1%",
+    residency: "PR via €250k-800k",
+    appreciation: "+12.8% YoY",
+    x: "49%",
+    y: "46%"
+  },
+
+  {
+    country: "United Kingdom",
+    roi: "7.6%",
+    yield: "4.8%",
+    residency: "Tier 1 / High Net Worth",
+    appreciation: "+6.5% YoY",
+    x: "47%",
+    y: "31%"
+  },
+
+  {
+    country: "Cyprus",
+    roi: "10.1%",
+    yield: "7.0%",
+    residency: "Permanent Residency",
+    appreciation: "+9.2% YoY",
+    x: "54%",
+    y: "49%"
+  }
 ];
 
 export default function PangaeaFunnel() {
@@ -61,7 +105,12 @@ export default function PangaeaFunnel() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-[#070707] via-[#070707]/80 to-transparent z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-[#070707]/60 z-10" />
-          <div className="w-full h-full scale-105 bg-[url('https://images.unsplash.com/photo-1549944850-84e00be42155?auto=format&fit=crop&w=2560&q=80')] bg-cover bg-center mix-blend-luminosity brightness-[0.35] contrast-125 saturate-[0.15] animate-[pulse_12s_ease-in-out_infinite]" />
+          <div
+  className="w-full h-full scale-105 bg-cover bg-center mix-blend-luminosity brightness-[0.45] contrast-125 saturate-[0.35]"
+  style={{
+    backgroundImage: "url('/dubai.hero.jpg')",
+  }}
+/>
         </div>
 
         <div className="relative z-20 max-w-4xl space-y-6">
@@ -176,7 +225,12 @@ export default function PangaeaFunnel() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Mock Interactive Digital Map Space */}
           <div className="lg:col-span-8 bg-[#111111] border border-white/10 h-[450px] relative overflow-hidden group shadow-inner">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80')] bg-cover opacity-10 mix-blend-luminosity contrast-150" />
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-90 "
+              style={{
+                backgroundImage: "url('/world_map.jpg')",
+              }}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent z-10" />
             
             {/* Interactive Country Node Triggers */}
@@ -293,22 +347,137 @@ export default function PangaeaFunnel() {
         </div>
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-          {[
-            { name: "Discovery", sub: "Investor profiling & wealth goals" },
-            { name: "Intelligence", sub: "Global market analytics & risk models" },
-            { name: "Legal Matrix", sub: "Cross-border compliance & escrow due diligence" },
-            { name: "Acquisition", sub: "Off-market sourcing & tier-one allocation negotiation" },
-            { name: "Portfolio Build", sub: "Long-term exit planning & generational wealth scaling" }
-          ].map((method, idx) => (
-            <div key={idx} className="bg-[#111111] border border-white/5 p-6 flex flex-col justify-between h-80 hover:border-[#C8A96B]/50 transition-all duration-500 group">
-              <span className="font-mono text-xs text-[#A9A39A]/40 group-hover:text-[#C8A96B] transition-colors">0{idx + 1}</span>
-              <div>
-                <h3 className="font-serif text-xl text-[#F5F1E8] mb-2">{method.name}</h3>
-                <p className="text-xs text-[#A9A39A] font-light leading-relaxed">{method.sub}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+  {[
+    { name: "Discovery", sub: "Investor profiling & wealth goals", visual: "radar" },
+    { name: "Intelligence", sub: "Global market analytics & risk models", visual: "graph" },
+    { name: "Legal Matrix", sub: "Cross-border compliance & escrow due diligence", visual: "shield" },
+    { name: "Acquisition", sub: "Off-market sourcing & tier-one allocation negotiation", visual: "tower" },
+    { name: "Portfolio Build", sub: "Long-term exit planning & generational wealth scaling", visual: "network" },
+  ].map((method, idx) => (
+    <motion.div
+      key={idx}
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
+      variants={{ rest: {}, hover: {} }}
+      className="group relative h-[360px] overflow-hidden border border-white/5 bg-[#111111] p-6 transition-all duration-700 hover:-translate-y-2 hover:border-[#C8A96B]/50 hover:shadow-[0_0_60px_rgba(200,169,107,0.08)]"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#C8A96B12,transparent_60%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+
+      <span className="absolute right-4 top-2 text-7xl font-serif text-white/[0.035]">
+        0{idx + 1}
+      </span>
+
+      <div className="relative h-40 flex items-center justify-center overflow-hidden">
+        {method.visual === "radar" && (
+          <motion.div
+            variants={{ rest: { rotate: 0 }, hover: { rotate: 360 } }}
+            transition={{ duration: 1.3, ease: "easeInOut" }}
+            className="relative h-28 w-28 rounded-full border border-[#C8A96B]/40"
+          >
+            <div className="absolute inset-4 rounded-full border border-[#C8A96B]/25" />
+            <div className="absolute inset-8 rounded-full border border-[#C8A96B]/25" />
+            <div className="absolute left-1/2 top-0 h-full w-[1px] bg-[#C8A96B]/30" />
+            <div className="absolute top-1/2 left-0 h-[1px] w-full bg-[#C8A96B]/30" />
+            <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C8A96B]" />
+          </motion.div>
+        )}
+
+        {method.visual === "graph" && (
+          <svg viewBox="0 0 200 100" className="h-full w-full overflow-visible">
+            <line x1="0" y1="80" x2="200" y2="80" stroke="#C8A96B20" />
+            <line x1="0" y1="50" x2="200" y2="50" stroke="#C8A96B15" />
+            <line x1="0" y1="20" x2="200" y2="20" stroke="#C8A96B10" />
+
+            <motion.path
+              variants={{ rest: { pathLength: 0 }, hover: { pathLength: 1 } }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              d="M10 85 C40 72, 70 60, 100 52 C130 40, 160 25, 190 8"
+              fill="none"
+              stroke="#C8A96B"
+              strokeWidth="3"
+              strokeLinecap="round"
+              className="drop-shadow-[0_0_10px_rgba(200,169,107,0.8)]"
+            />
+
+            <motion.circle
+              variants={{ rest: { scale: 0 }, hover: { scale: 1 } }}
+              transition={{ duration: 0.4, delay: 0.8 }}
+              cx="190"
+              cy="8"
+              r="4"
+              fill="#C8A96B"
+            />
+          </svg>
+        )}
+
+        {method.visual === "shield" && (
+          <motion.div
+            variants={{ rest: { scale: 1 }, hover: { scale: 1.08 } }}
+            transition={{ duration: 0.4 }}
+            className="relative"
+          >
+            <div className="h-28 w-24 rounded-b-[42px] rounded-t-xl border-2 border-[#C8A96B]/50" />
+            <div className="absolute inset-4 rounded-b-[26px] rounded-t-md border border-[#C8A96B]/25" />
+            <motion.div
+              variants={{ rest: { opacity: 0, scale: 0.5 }, hover: { opacity: 1, scale: 1 } }}
+              transition={{ duration: 0.4 }}
+              className="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C8A96B]/40"
+            />
+          </motion.div>
+        )}
+
+        {method.visual === "tower" && (
+          <div className="flex h-32 items-end gap-2">
+            {[52, 78, 106, 138].map((h, i) => (
+              <motion.div
+                key={i}
+                variants={{ rest: { height: 25 }, hover: { height: h } }}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="w-8 border border-[#C8A96B]/40 bg-[#C8A96B]/20"
+              />
+            ))}
+          </div>
+        )}
+
+        {method.visual === "network" && (
+          <div className="relative h-32 w-44">
+            <motion.svg className="absolute inset-0 h-full w-full">
+              <motion.line variants={{ rest: { pathLength: 0 }, hover: { pathLength: 1 } }} transition={{ duration: 0.6 }} x1="30" y1="35" x2="85" y2="60" stroke="#C8A96B50" />
+              <motion.line variants={{ rest: { pathLength: 0 }, hover: { pathLength: 1 } }} transition={{ duration: 0.6, delay: 0.2 }} x1="85" y1="60" x2="135" y2="85" stroke="#C8A96B50" />
+            </motion.svg>
+
+            {[
+              { x: 30, y: 35 },
+              { x: 85, y: 60 },
+              { x: 135, y: 85 },
+            ].map((node, i) => (
+              <motion.div
+                key={i}
+                variants={{
+                  rest: { opacity: 0.35, scale: 1 },
+                  hover: { opacity: 1, scale: 1.25 },
+                }}
+                transition={{ duration: 0.4, delay: i * 0.15 }}
+                className="absolute h-3 w-3 rounded-full bg-[#C8A96B] shadow-[0_0_18px_rgba(200,169,107,0.8)]"
+                style={{ left: node.x, top: node.y }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="mt-8">
+        <h3 className="mb-3 font-serif text-2xl text-[#F5F1E8]">
+          {method.name}
+        </h3>
+        <p className="text-sm font-light leading-relaxed text-[#A9A39A]">
+          {method.sub}
+        </p>
+      </div>
+    </motion.div>
+  ))}
+</div>
       </section>
 
       {/* SECTION 6: INVESTOR VERIFIED DOSSIERS */}
@@ -391,7 +560,12 @@ export default function PangaeaFunnel() {
 
       {/* SECTION 8: FINAL DISCRETE CTA */}
       <section id="cta" className="relative py-40 px-8 lg:px-16 bg-[#0c0c0c] border-t border-white/10 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-[0.03] mix-blend-luminosity scale-110" />
+        <div
+  className="absolute inset-0 bg-cover bg-center opacity-[0.5] mix-blend-luminosity scale-110"
+  style={{
+    backgroundImage: "url('/luxuary_home.jpg')",
+  }}
+/>
         
         <div className="relative z-10 max-w-4xl mx-auto space-y-8">
           <span className="text-xs tracking-[0.4em] text-[#C8A96B] uppercase font-semibold">Strictly Private Intake</span>
@@ -452,11 +626,60 @@ export default function PangaeaFunnel() {
 
         <div className="max-w-7xl mx-auto border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] text-[#A9A39A]/40 gap-4">
           <div>© {new Date().getFullYear()} Pangaea Realty Advisory Network. All sovereign rights reserved.</div>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-[#C8A96B]">Privacy Architecture</a>
-            <a href="#" className="hover:text-[#C8A96B]">Regulatory Frameworks</a>
-            <a href="#" className="hover:text-[#C8A96B]">Escrow Protocols</a>
-          </div>
+          <div className="flex items-center gap-6">
+
+  <span className="text-[11px] tracking-wide text-white/35">
+    Privacy Architecture
+  </span>
+
+  <span className="text-[11px] tracking-wide text-white/35">
+    Regulatory Frameworks
+  </span>
+
+  <span className="text-[11px] tracking-wide text-white/35">
+    Escrow Protocols
+  </span>
+
+  {/* divider */}
+  <span className="h-4 w-px bg-[#C8A96B]/15" />
+
+  {/* credits */}
+  <div className="flex items-center gap-3">
+
+    
+
+    <a
+      href="https://fabulousmedia.in/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="opacity-70 transition-all duration-300 hover:opacity-100"
+    >
+      <img
+        src="/fabulous-logo.png"
+        alt="FabulousMedia"
+        className="h-3 w-auto object-contain opacity-80 grayscale hover:grayscale-0"
+      />
+    </a>
+
+    <span className="h-3 w-px bg-[#C8A96B]/15" />
+
+    <a
+      href="https://gocommercially.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="opacity-70 transition-all duration-300 hover:opacity-100"
+    >
+      <img
+        src="/gocommercially-logo.svg"
+        alt="GoCommercially"
+        className="h-3 w-auto object-contain opacity-80 grayscale hover:grayscale-0"
+      />
+    </a>
+
+  </div>
+
+</div>
+          
         </div>
       </footer>
 
