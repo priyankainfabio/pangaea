@@ -100,84 +100,177 @@ export default function PangaeaFunnel() {
       </header>
 
       {/* SECTION 1: CINEMATIC HERO */}
-      <section className="relative h-screen flex items-center justify-between px-8 lg:px-16 overflow-hidden z-10 pt-16">
-        {/* Dynamic Abstract Moving Backdrop */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070707] via-[#070707]/80 to-transparent z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-[#070707]/60 z-10" />
-          <div
-  className="w-full h-full scale-105 bg-cover bg-center mix-blend-luminosity brightness-[0.45] contrast-125 saturate-[0.35]"
-  style={{
-    backgroundImage: "url('/dubai.hero.jpg')",
-  }}
-/>
-        </div>
+      {/* SECTION 1: STRONGER CINEMATIC HERO */}
+<section className="relative h-screen flex items-center justify-between px-8 lg:px-16 overflow-hidden z-10 pt-16">
 
-        <div className="relative z-20 max-w-4xl space-y-6">
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-xs tracking-[0.4em] uppercase text-[#C8A96B] font-semibold"
+  {/* CINEMATIC BACKGROUND */}
+  <div className="absolute inset-0 z-0 overflow-hidden">
+    
+
+
+
+{/* cinematic hero video */}
+<video
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="absolute inset-0 h-full w-full object-cover scale-125 opacity-110"
+>
+  <source src="/hero-video.mp4" type="video/mp4" />
+</video>
+
+    {/* dark luxury overlays */}
+    <div className="absolute inset-0 bg-gradient-to-r from-[#070707] via-[#070707]/85 to-[#070707]/30" />
+    <div className="absolute inset-0 bg-gradient-to-t from-[#070707] via-transparent to-[#070707]/80" />
+
+    {/* gold atmosphere */}
+    <div className="absolute top-[-15%] right-[-10%] w-[700px] h-[700px] bg-[#C8A96B]/12 blur-[180px] rounded-full" />
+    <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-[#C8A96B]/8 blur-[160px] rounded-full" />
+  </div>
+
+  {/* LEFT HERO CONTENT */}
+  <div className="relative z-20 max-w-4xl space-y-7">
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-xs tracking-[0.45em] uppercase text-[#C8A96B] font-semibold"
+    >
+      Private Global Real Estate Advisory
+    </motion.p>
+
+    <motion.h1
+      initial={{ opacity: 0, y: 35 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.2 }}
+      className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-[-0.035em] leading-[0.95] text-[#F5F1E8]"
+    >
+      Your Wealth Deserves <br />
+      <span className="italic font-light text-[#C8A96B]">
+        More Than One Country.
+      </span>
+    </motion.h1>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.5 }}
+      className="text-[#A9A39A] font-light max-w-xl text-base md:text-lg leading-relaxed"
+    >
+      Build global assets, residency pathways, and long-term wealth security
+      through strategic international real estate ownership.
+    </motion.p>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 0.65 }}
+      className="text-[11px] uppercase tracking-[0.28em] text-[#C8A96B]/80"
+    >
+      Confidential allocations available only to qualified investors.
+    </motion.p>
+
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.8 }}
+      className="flex flex-col sm:flex-row gap-4 pt-4"
+    >
+      <a
+        href="#cta"
+        className="bg-[#C8A96B] text-[#070707] text-xs font-semibold tracking-[0.25em] uppercase px-9 py-4 hover:bg-[#F5F1E8] transition-colors duration-300 text-center"
+      >
+        Request Private Access
+      </a>
+
+      <a
+        href="#intelligence"
+        className="border border-[#F5F1E8]/20 bg-white/5 backdrop-blur-md text-[#F5F1E8] text-xs font-semibold tracking-[0.25em] uppercase px-9 py-4 hover:border-[#C8A96B] hover:text-[#C8A96B] transition-colors duration-300 text-center"
+      >
+        Explore Global Markets
+      </a>
+    </motion.div>
+
+    
+  </div>
+
+  {/* RIGHT SIDE FLOATING INTELLIGENCE SYSTEM */}
+  <div className="hidden lg:block relative z-20 w-[390px] h-[520px] mr-4">
+
+    {/* mini world panel */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 0.5 }}
+      className="absolute top-0 right-0 w-full border border-white/10 bg-[#111111]/60 backdrop-blur-2xl p-5 shadow-2xl"
+    >
+      <div className="flex justify-between items-center mb-5">
+        <span className="text-[10px] uppercase tracking-[0.3em] text-[#C8A96B]">
+          Wealth Intelligence
+        </span>
+        <span className="h-2 w-2 rounded-full bg-[#C8A96B] shadow-[0_0_18px_rgba(200,169,107,0.8)]" />
+      </div>
+
+      <div className="space-y-4">
+        {[
+          ["Dubai", "8.4% Rental Yield"],
+          ["Portugal", "Residency Pathway Active"],
+          ["Greece", "PR Route Open"],
+          ["UAE", "Golden Visa Eligible"],
+        ].map((item, index) => (
+          <motion.div
+            key={index}
+            animate={{ y: [0, -6, 0] }}
+            transition={{
+              repeat: Infinity,
+              duration: 4,
+              delay: index * 0.5,
+            }}
+            className="border border-white/8 bg-white/[0.04] p-4 hover:border-[#C8A96B]/40 transition-all duration-300"
           >
-            Global Real Estate Advisory
-          </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] text-[#F5F1E8]"
-          >
-            Your Wealth Deserves <br />
-            <span className="italic font-light text-[#C8A96B]">More Than One Country.</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="text-[#A9A39A] font-light max-w-xl text-base md:text-lg leading-relaxed"
-          >
-            Build institutional global portfolios, secure sovereign residency pathways, and guarantee international mobility through strategic cross-border acquisitions.
-          </motion.p>
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-4 pt-4"
-          >
-            <a href="#intelligence" className="bg-[#C8A96B] text-[#070707] text-xs font-semibold tracking-[0.2em] uppercase px-8 py-4 hover:bg-[#F5F1E8] transition-colors duration-300 text-center">
-              Explore Global Markets
-            </a>
-            <a href="#cta" className="border border-[#F5F1E8]/20 bg-white/5 backdrop-blur-md text-[#F5F1E8] text-xs font-semibold tracking-[0.2em] uppercase px-8 py-4 hover:border-[#C8A96B] hover:text-[#C8A96B] transition-colors duration-300 text-center">
-              Book Private Strategy Session
-            </a>
+            <div className="flex justify-between items-center">
+              <span className="font-serif text-xl text-[#F5F1E8]">
+                {item[0]}
+              </span>
+              <span className="text-[10px] uppercase tracking-widest text-[#C8A96B]">
+                {item[1]}
+              </span>
+            </div>
           </motion.div>
-        </div>
+        ))}
+      </div>
+    </motion.div>
 
-        {/* Floating Intelligence Terminal (Right Side) */}
-        <div className="hidden lg:flex flex-col gap-4 relative z-20 w-80 mr-8">
-          {intelligenceData.slice(0, 4).map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 + index * 0.15 }}
-              whileHover={{ scale: 1.03, y: -2 }}
-              className="bg-[#111111]/70 backdrop-blur-xl border border-white/10 p-5 shadow-2xl relative overflow-hidden group"
-            >
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#C8A96B] opacity-40 group-hover:opacity-100 transition-opacity" />
-              <div className="flex justify-between items-baseline mb-1">
-                <span className="font-serif text-lg tracking-wide text-[#F5F1E8]">{item.country}</span>
-                <span className="text-[10px] tracking-wider text-[#C8A96B] uppercase font-mono font-bold">{item.roi} ROI</span>
-              </div>
-              <div className="flex justify-between items-center text-[11px] text-[#A9A39A]">
-                <span>Yield: {item.yield}</span>
-                <span className="text-[9px] px-1.5 py-0.5 bg-white/5 rounded border border-white/5 font-mono">{item.residency.split(' ')[0]} Route</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+    {/* graph card */}
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1, delay: 0.8 }}
+      className="absolute bottom-[-47px] right-12 w-[300px] border border-[#C8A96B]/20 bg-[#070707]/70 backdrop-blur-xl p-5"
+    >
+      <span className="text-[10px] uppercase tracking-[0.3em] text-[#A9A39A]">
+        Portfolio Growth Index
+      </span>
+
+      <svg viewBox="0 0 260 120" className="mt-4 h-28 w-full overflow-visible">
+        <line x1="0" y1="90" x2="260" y2="90" stroke="#C8A96B20" />
+        <line x1="0" y1="55" x2="260" y2="55" stroke="#C8A96B15" />
+
+        <motion.path
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2, delay: 1.1 }}
+          d="M5 100 C45 90, 75 70, 110 68 C150 66, 175 35, 255 18"
+          fill="none"
+          stroke="#C8A96B"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+      </svg>
+    </motion.div>
+  </div>
+</section>
 
       {/* SECTION 2: THE SHIFT (MACRO PARADIGM) */}
       <section id="shift" className="relative py-32 px-8 lg:px-16 bg-[#0c0c0c] border-y border-white/5 overflow-hidden">
