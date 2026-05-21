@@ -65,6 +65,23 @@ const intelligenceData: MarketIntelligence[] = [
     y: "49%"
   }
 ];
+const fadeUp = {
+  hidden: { opacity: 0, y: 55 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.85, ease: "easeOut" },
+  },
+};
+
+const staggerWrap = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 export default function PangaeaFunnel() {
   const [activeCountry, setActiveCountry] = useState<MarketIntelligence>(intelligenceData[0]);
@@ -275,7 +292,13 @@ export default function PangaeaFunnel() {
       {/* SECTION 2: THE SHIFT (MACRO PARADIGM) */}
       <section id="shift" className="relative py-32 px-8 lg:px-16 bg-[#0c0c0c] border-y border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+            className="lg:col-span-5 space-y-6"
+          >
             <span className="text-xs tracking-[0.3em] text-[#C8A96B] uppercase font-semibold">The Sovereign Investor Paradox</span>
             <h2 className="font-serif text-4xl md:text-5xl tracking-tight leading-tight">
               The Wealthiest Capital <br />
@@ -284,7 +307,7 @@ export default function PangaeaFunnel() {
             <p className="text-[#A9A39A] text-sm md:text-base font-light leading-relaxed">
               Domestic asset insulation is an obsolete paradigm. In an era defined by sovereign volatility, currency degradation, and unexpected structural realignments, geographical singular containment represents structural vulnerability.
             </p>
-          </div>
+          </motion.div>
           
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -319,7 +342,7 @@ export default function PangaeaFunnel() {
           {/* Mock Interactive Digital Map Space */}
           <div className="lg:col-span-8 bg-[#111111] border border-white/10 h-[450px] relative overflow-hidden group shadow-inner">
             <div
-              className="absolute inset-0 bg-cover bg-center opacity-90 "
+              className="absolute inset-0 bg-cover bg-center opacity-10 "
               style={{
                 backgroundImage: "url('/world_map.jpg')",
               }}
@@ -521,29 +544,32 @@ export default function PangaeaFunnel() {
         )}
 
         {method.visual === "tower" && (
-          <div className="flex h-32 items-end gap-2">
-            {[52, 78, 106, 138].map((h, i) => (
-              <motion.div
-                key={i}
-                variants={{ rest: { height: 25 }, hover: { height: h } }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="w-8 border border-[#C8A96B]/40 bg-[#C8A96B]/20"
-              />
-            ))}
-          </div>
-        )}
+  <div className="flex h-32 items-end gap-2">
+    {[
+      "group-hover:h-[52px]",
+      "group-hover:h-[78px]",
+      "group-hover:h-[106px]",
+      "group-hover:h-[138px]",
+    ].map((hoverHeight, i) => (
+      <div
+        key={i}
+        className={`h-[25px] w-8 border border-[#C8A96B]/40 bg-[#C8A96B]/20 transition-all duration-700 ${hoverHeight}`}
+      />
+    ))}
+  </div>
+)}
 
         {method.visual === "network" && (
           <div className="relative h-32 w-44">
             <motion.svg className="absolute inset-0 h-full w-full">
-              <motion.line variants={{ rest: { pathLength: 0 }, hover: { pathLength: 1 } }} transition={{ duration: 0.6 }} x1="30" y1="35" x2="85" y2="60" stroke="#C8A96B50" />
-              <motion.line variants={{ rest: { pathLength: 0 }, hover: { pathLength: 1 } }} transition={{ duration: 0.6, delay: 0.2 }} x1="85" y1="60" x2="135" y2="85" stroke="#C8A96B50" />
-            </motion.svg>
+              <motion.line x1="30" y1="85" x2="85" y2="60" stroke="#C8A96B50" />
+<motion.line x1="85" y1="60" x2="135" y2="35" stroke="#C8A96B50" /></motion.svg>
+
 
             {[
-              { x: 30, y: 35 },
+              { x: 30, y: 85 },
               { x: 85, y: 60 },
-              { x: 135, y: 85 },
+              { x: 135, y: 35 },
             ].map((node, i) => (
               <motion.div
                 key={i}
